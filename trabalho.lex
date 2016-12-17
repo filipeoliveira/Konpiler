@@ -16,6 +16,9 @@ LESELN		[Ll][Ee][Ss][Ee][Ll][Nn]
 LESE			[Ll][Ee][Ss][Ee]
 WELTWEIT		[Ww][Ee][Ll][Tt][Ww][Ee][Ii][Tt]
 OB			[Oo][Bb]
+OBPLUS			[Oo][Bb][Pp][Ll][Uu][Ss]
+OBMINUS			[Oo][Bb][Mm][Ii][Nn][Uu][Ss]
+OBGLEICH	[Oo][Bb][Gg][Ll][Ei][Ii][Cc][Hh]
 SONST		[Ss][Oo][Nn][Ss][Tt]
 FUER			[Ff][Uu][Ee][Rr]
 MACH			[Mm][Aa][Cc][Hh]
@@ -62,6 +65,9 @@ CTE_DOUBLE  {NUMERO}+("."{NUMERO}+)?
 {BOOLESCH} 	{ atributo(); return _BOOLEAN; }
 {WELTWEIT} 	{ atributo(); return _GLOBAL; }
 {OB} 		    { atributo(); return _IF; }
+{OBPLUS} 		{ atributo(); return _IFGREATER; }
+{OBMINUS}   { atributo(); return _IFLESS; }
+{OBGLEICH}  { atributo(); return _IFEQUAL; }
 {SONST}		  { atributo(); return _ELSE; }
 {MACH}		  { atributo(); return _DO; }
 {FUER} 		  { atributo(); return _FOR; }
@@ -83,9 +89,6 @@ CTE_DOUBLE  {NUMERO}+("."{NUMERO}+)?
 "<="		{ atributo(); return _MENOR_IGUAL; }
 ">="		{ atributo(); return _MAIOR_IGUAL; }
 "!="		{ atributo(); return _DIFERENTE; }
-"<"     { atributo(); return _MENOR_QUE}
-">"     { atributo(); return _MAIOR_QUE}
-"!"     { atributo(); return _NOT}
 
 
 {ID}  { atributo(); return _ID; }

@@ -1,0 +1,23 @@
+
+schnur formata(schnur a, schnur b) {
+   	obplus (a > b) mach { Result = a;}
+        sonst mach { Result = b; };
+}
+
+main :{
+
+  schnur nome1;
+  schnur nome2;
+
+  schreibln("Digite o seu nome: ");
+  leseln(nome1);
+  schreibln("Digite o seu sobrenome");
+  leseln(nome2);
+
+  schreibln("\n");
+
+  schreibln("Bom dia, ");
+
+	formata(nome1, nome2);
+
+}:

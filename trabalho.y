@@ -297,8 +297,8 @@ void gera_cmd_while( Atributo& ss,
 
 %}
 
-%token _ID _BEGIN _END _IMPRIMELN _IMPRIME _READ _READLN _GLOBAL _IF _ELSE _WHILE _PRINCIPAL
-%token _FOR _EQUALS _MENOR_IGUAL _MAIOR_IGUAL _DOIS_PTS _DO _DIFERENTE _MOD _AND _OR _PLUS _LESS _TIMES _DIVIDE _MENOR_QUE _MAIOR_QUE _NOT
+%token _ID _BEGIN _END _IMPRIMELN _IMPRIME _READ _READLN _GLOBAL _IF _ELSE _WHILE _PRINCIPAL _IFGREATER _IFLESS _IFEQUAL
+%token _FOR _EQUALS _MENOR_IGUAL _MAIOR_IGUAL _DOIS_PTS _DO _DIFERENTE _MOD _AND _OR _PLUS _LESS _TIMES _DIVIDE
 %token _INTEGER _STRING _REAL _BOOLEAN _DOUBLE _CHAR _VOID
 
 %token _CTE_STRING _CTE_INTEGER
@@ -411,6 +411,7 @@ CMDS : CMD ';' CMDS     { $$.c = $1.c + $3.c; }
 CMD : SAIDA        // faltam os comandos while e do while.
     | ENTRADA
     | CMD_IF
+    | CMD_IFGREATER
     | CMD_FOR
     | CMD_WHILE
     | BLOCO
@@ -457,6 +458,9 @@ BLOCO : '{' CMDS '}' { $$.c = $2.c ;}
 CMD_IF : _IF E _DO BLOCO     //alterado - mudar declaração de IF
        | _IF E _DO BLOCO _ELSE _DO BLOCO { gera_cmd_if( $$, $2, $4, $7 ); }
        ;
+
+CMD_IFGREATER :_IFGREATER '(' E ')' _DO BLOCO _ELSE _DO BLOCO { $$.c = "  strcmp( \"strlen("+ $3.v + ")" + "\", + " + $3.v + " );\n"; }
+      ;
 
 SAIDA : _IMPRIME'(' E ')'     { $$.c = "  printf( \"%"+ $3.t.fmt + "\", " + $3.v + " );\n"; }
       | _IMPRIMELN '(' E ')'  { $$.c = "  printf( \"%"+ $3.t.fmt + "\\n\", " + $3.v + " );\n"; }
