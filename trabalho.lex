@@ -21,6 +21,13 @@ FUER			[Ff][Uu][Ee][Rr]
 MACH			[Mm][Aa][Cc][Hh]
 WAEHREND	[Ww][Aa][Ee][Hh][Rr][Ee][Nn][Dd]
 MOD			[Mm][Oo][Dd]
+UND	[Uu][Nn][Dd]
+ODER	[Oo][Dd][Ee][Rr]
+PLUS	[Pp][Ll][Uu][Ss]
+MINUS	[Mm][Ii][Nn][Uu][Ss]
+MAL	[Mm][Aa][Ll]
+GETEILT	[Gg][Ee][Tt][Ee][Ii][Ll][Tt]
+
 
 GANZZAHL		[Gg][Aa][Nn][Zz][Zz][Aa][Hh][Ll]
 SCHNUR		[Ss][Cc][Hh][Nn][Uu][Rr]
@@ -41,28 +48,34 @@ CTE_DOUBLE  {NUMERO}+("."{NUMERO}+)?
 {WS} { yyrowno += 1; }
 
 
-{MAIN} 	{ atributo(); return _PRINCIPAL; }
-{SCHREIBLN} 	{ atributo(); return _IMPRIMELN; }
+{MAIN} 	    { atributo(); return _PRINCIPAL; }
+{SCHREIBLN} { atributo(); return _IMPRIMELN; }
 {SCHREIB} 	{ atributo(); return _IMPRIME; }
-{LESELN} 	{ atributo(); return _READLN; }
-{LESE} 		{ atributo(); return _READ; }
-{SCHNUR} 	{ atributo(); return _STRING; }
+{LESELN} 	  { atributo(); return _READLN; }
+{LESE} 		  { atributo(); return _READ; }
+{SCHNUR} 	  { atributo(); return _STRING; }
 {GANZZAHL} 	{ atributo(); return _INTEGER; }
-{DOPPEL} 	{ atributo(); return _DOUBLE; }
+{DOPPEL} 	  { atributo(); return _DOUBLE; }
 {ZEICHEN}	 	{ atributo(); return _CHAR; }
-{LEER}     { atributo(); return _VOID; }
-{ECHT} 		{ atributo(); return _REAL; }
+{LEER}      { atributo(); return _VOID; }
+{ECHT} 		  { atributo(); return _REAL; }
 {BOOLESCH} 	{ atributo(); return _BOOLEAN; }
 {WELTWEIT} 	{ atributo(); return _GLOBAL; }
-{OB} 		{ atributo(); return _IF; }
-{SONST}		{ atributo(); return _ELSE; }
-{MACH}		{ atributo(); return _DO; }
-{FUER} 		{ atributo(); return _FOR; }
-{WAEHREND} 	{ atributo(); return _WHILE; }
-{MOD} 		{ atributo(); yylval.v = "%"; return _MOD; }
+{OB} 		    { atributo(); return _IF; }
+{SONST}		  { atributo(); return _ELSE; }
+{MACH}		  { atributo(); return _DO; }
+{FUER} 		  { atributo(); return _FOR; }
+{WAEHREND}  { atributo(); return _WHILE; }
+{MOD} 		  { atributo(); yylval.v = "%"; return _MOD; }
+{UND}	      { atributo(); return _AND; }
+{ODER}		  { atributo(); return _OR; }
+{PLUS}		  { atributo(); return _PLUS; }
+{MINUS}		  { atributo(); return _LESS; }
+{MAL}	      { atributo(); return _TIMES; }
+{GETEILT}	  { atributo(); return _DIVIDE; }
 
-{CTE_STRING} 	{ atributo(); return _CTE_STRING; }
-{CTE_INTEGER} 	{ atributo(); return _CTE_INTEGER; }
+{CTE_STRING} 	 { atributo(); return _CTE_STRING; }
+{CTE_INTEGER}  { atributo(); return _CTE_INTEGER; }
 
 ":{"		{ atributo(); return _BEGIN; }
 "}:" 		{ atributo(); return _END; }
@@ -70,6 +83,7 @@ CTE_DOUBLE  {NUMERO}+("."{NUMERO}+)?
 "<="		{ atributo(); return _MENOR_IGUAL; }
 ">="		{ atributo(); return _MAIOR_IGUAL; }
 "!="		{ atributo(); return _DIFERENTE; }
+
 
 
 {ID}  { atributo(); return _ID; }

@@ -1,6 +1,6 @@
 
 ganzzahl mdc(ganzzahl a, ganzzahl b) {
-   	ob b == 0 mach { Result = a;}
+   	ob (b == 0) mach { Result = a;}
         sonst mach { Result = mdc(a , a mod b); };
 }
 
@@ -17,7 +17,7 @@ main :{
 
 	result = mdc(a,b);
 
-	schreibln("O resultado do mcd é: ");
+	schreibln("O resultado do mdc entre os dois numeros é: ");
 	schreibln(result);
 
 }:
