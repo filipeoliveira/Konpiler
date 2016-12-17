@@ -83,7 +83,9 @@ CTE_DOUBLE  {NUMERO}+("."{NUMERO}+)?
 "<="		{ atributo(); return _MENOR_IGUAL; }
 ">="		{ atributo(); return _MAIOR_IGUAL; }
 "!="		{ atributo(); return _DIFERENTE; }
-
+"<"     { atributo(); return _MENOR_QUE}
+">"     { atributo(); return _MAIOR_QUE}
+"!"     { atributo(); return _NOT}
 
 
 {ID}  { atributo(); return _ID; }
