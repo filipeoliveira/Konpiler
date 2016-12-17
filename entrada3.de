@@ -1,12 +1,10 @@
 
-zeichen a;
-zeichen b[12];
-zeichen c;
-doppel c;
+ganzzahl f(ganzzahl a, zeichen t) {
 
-leer f(ganzzahl a, zeichen t[] );
+};
 
-leer foo(int y[5], int x)
+
+leer foo(ganzzahl y[5], ganzzahl x)
 {
   zeichen y[9];
 
@@ -16,6 +14,11 @@ leer foo(int y[5], int x)
 main ()
 {
   ganzzahl a;
+
+  zeichen a;
+  zeichen b[12];
+  zeichen c;
+  doppel c;
 
   temp = b("32");
   temp = temp && 1;

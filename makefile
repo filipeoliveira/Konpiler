@@ -1,5 +1,5 @@
 all: trabalho entrada.de
-	./trabalho < Entrada2.de > saida.cc
+	./trabalho < ex1.de > saida.cc
 	cat saida.cc
 
 lex.yy.c: trabalho.lex
