@@ -1,0 +1,23 @@
+
+ganzzahl mdc(ganzzahl a, ganzzahl b) {
+   	ob b == 0 mach { Result = a;}
+        sonst mach { Result = mdc(a , a mod b); };
+}
+
+main :{
+	ganzzahl a;
+	ganzzahl b;
+	ganzzahl result;
+
+	schreibln("Programa MDC");
+	schreibln("Digite o primeiro numero:");
+	leseln(a);
+	schreibln("Digite o segundo numero:");
+	leseln(b);
+
+	result = mdc(a,b);
+
+	schreibln("O resultado do mcd é: ");
+	schreibln(result);
+
+}:

@@ -1,5 +1,8 @@
 main :{
 
-	schreibln("Hello, World!");
 
+ganzzahl x;
+leseln(x);
+
+	schreibln("Hello, World!");
 }:
