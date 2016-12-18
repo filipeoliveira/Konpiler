@@ -175,6 +175,11 @@ void gera_codigo_operador( Atributo& ss,
     if( tro[s2.v].find( par( s1.t, s3.t ) ) != tro[s2.v].end() ) {
       ss.t = tro[s2.v][par( s1.t, s3.t )];
       ss.v = gera_nome_var( ss.t );
+      if(s2.v == '+'){
+        string tmp;
+        strcpy(tmp, s1.v);
+        strcat(tmp, s3.v);
+      }
       ss.c = s1.c + s3.c + "  " + ss.v + " = " + s1.v + s2.v + s3.v
              + ";\n";
     }
