@@ -1,7 +1,8 @@
 main :{
 
-ganzzahl x;
-leseln(x);
+	ganzzahl x;
+	leseln(x);
 
 	schreibln("Hello, World!");
+	
 }:

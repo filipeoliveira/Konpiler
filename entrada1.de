@@ -1,5 +1,0 @@
-main :{
-
-	schreibln("Hello, World!");
-
-}:

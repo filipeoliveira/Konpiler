@@ -1,0 +1,15 @@
+ganzzahl foo(ganzzahl x, ganzzahl y) {
+   	waehrend (x > 0) mach {
+        Result = y;};
+}
+
+main :{
+	ganzzahl a;
+	ganzzahl b;
+
+  a = 1;
+  b = 2;
+
+	foo(a, b);
+
+}:

@@ -1,0 +1,24 @@
+
+------------ Compilador em Alemão -------------
+
+----- Alunos: -----
+
+Alan de Oliveira Lyra / DRE: 111394510
+Filipe José Teixeira de Oliveira / DRE: 112095088
+Yago de Araujo Serpa / DRE: 112215599
+
+----- Instruções: -----
+
+Os arquivos a serem compilados do Trabalho são os arquivos "ex1.de" e "ex2.de".
+
+"ex1.de" => Realiza o MDC entre dois numeros digitados pelo usuário.
+
+"ex2.de" => Realiza concatenação de strings.
+
+Arquivos de exemplos:
+
+"exemploLeseUndSchreibe.de" => Arquivo criado no inicio do projeto com finalidade de Ler e Escrever (Scanf e Printf).
+
+"exemploFuer.de" => Arquivo simples executando um For.
+
+"exemploWaehrend.de" Arquivo simples executando um While.

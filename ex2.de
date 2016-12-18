@@ -1,9 +1,9 @@
 
-schnur formata(schnur a, schnur b) {
+schnur concatena(schnur a, schnur b) {
    	obplus (a > b) mach
-      { Result = a+b;}
+        { Result = a+b;}
     sonst mach
-      { Result = b+a; };
+        { Result = b+a; };
 }
 
 main :{
@@ -20,6 +20,6 @@ main :{
 
   schreibln("Bom dia, ");
 
-	formata(nome1, nome2);
+	concatena(nome1, nome2);
 
 }:
