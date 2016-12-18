@@ -10,7 +10,16 @@ char formata( char a[256]
 char Result[256];
 int t_boolean_1;
 
-  strcmp( "strlen(t_boolean_1)", + t_boolean_1 );
+  t_boolean_1 = a>b;
+
+if( t_boolean_1 ) goto L_then_1;
+  Result = b;
+  goto L_end_if_1;
+
+L_then_1:
+  Result = a;
+;
+L_end_if_1:;
 return Result;
 }
 int main() {

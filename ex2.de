@@ -1,7 +1,9 @@
 
 schnur formata(schnur a, schnur b) {
-   	obplus (a > b) mach { Result = a;}
-        sonst mach { Result = b; };
+   	obplus (a > b) mach
+      { Result = a;}
+    sonst mach
+      { Result = b; };
 }
 
 main :{

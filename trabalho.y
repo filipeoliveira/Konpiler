@@ -228,6 +228,24 @@ void gera_cmd_if( Atributo& ss,
          lbl_end_if + ":;\n";
 }
 
+void gera_cmd_ifgreater( Atributo& ss,
+                  const Atributo& exp,
+                  const Atributo& cmd_then,
+                  const Atributo& cmd_else ) {
+  string lbl_then = gera_nome_label( "then" );
+  string lbl_end_if = gera_nome_label( "end_if" );
+
+  if( exp.t.nome != Boolean.nome )
+    erro( "A expressão do SE deve ser booleana!" );
+
+  ss.c = exp.c +
+         "\nif( " + exp.v + " ) goto " + lbl_then + ";\n" +
+         cmd_else.c + "  goto " + lbl_end_if + ";\n\n" +
+         lbl_then + ":\n" +
+         cmd_then.c + ";\n" +
+         lbl_end_if + ":;\n";
+}
+
 
 void gera_cmd_for( Atributo& ss,
                   const Atributo& id,
@@ -459,7 +477,7 @@ CMD_IF : _IF E _DO BLOCO     //alterado - mudar declaração de IF
        | _IF E _DO BLOCO _ELSE _DO BLOCO { gera_cmd_if( $$, $2, $4, $7 ); }
        ;
 
-CMD_IFGREATER :_IFGREATER '(' E ')' _DO BLOCO _ELSE _DO BLOCO { $$.c = "  strcmp( \"strlen("+ $3.v + ")" + "\", + " + $3.v + " );\n"; }
+CMD_IFGREATER :_IFGREATER E _DO BLOCO _ELSE _DO BLOCO { gera_cmd_ifgreater( $$, $2, $4, $7 ); }
       ;
 
 SAIDA : _IMPRIME'(' E ')'     { $$.c = "  printf( \"%"+ $3.t.fmt + "\", " + $3.v + " );\n"; }
